@@ -19,13 +19,13 @@ PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX fabio: <http://purl.org/spar/fabio/>
 PREFIX nie: <{NIE}>
 PREFIX pgterms: <{PG}>
-PREFIX rdf: <RDF>
+PREFIX rdf: <{RDF}>
 PREFIX rdfs: <{RDFS}>
 PREFIX uwa: <{UWA}>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 """
 
-sparql = SPARQLWrapper('/'.join([DATASET, 'query']), updateEndpoint='/'.join([DATASET, 'update']))
+sparql = SPARQLWrapper('/'.join([DATASET, 'query']).replace(r'//','/'), updateEndpoint='/'.join([DATASET, 'update']).replace(r'//','/'))
 
 
 def bookshelves():
