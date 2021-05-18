@@ -106,10 +106,10 @@ WHERE {{
 			if 'charset' in options and options['charset']:
 				chst = options['charset']
 				charset = UWA['CharacterSet_' + chst.upper()]
-				format = DHTK['/'.join(['format', urllib.parse.quote(mimetype, safe=''), 'charset', chst])]
+				fmt = DHTK['/'.join(['format', urllib.parse.quote(mimetype, safe=''), 'charset', chst])]
 				insert = f"""
-	?x dct:format <{format}> .
-	<{format}> a uwa:ContentType
+	?x dct:format <{fmt}> .
+	<{fmt}> a uwa:ContentType
 	   ; uwa:contentTypeName "{content_type}"^^xsd:string
 	   ; nie:mimeType <{mime}>
 	   ; nie:characterSet <{charset}> .
@@ -121,10 +121,10 @@ WHERE {{
 	.
 """
 			else: 
-				format = mime
+				fmt = mime
 				insert = f"""
-	?x dct:format <{format}> .
-	<{format}> a uwa:ContentType
+	?x dct:format <{fmt}> .
+	<{fmt}> a uwa:ContentType
 	   ; uwa:contentTypeName "{mimetype}"^^xsd:string
 	   ; ?p1 ?y1
 	.
